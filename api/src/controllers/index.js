@@ -13,7 +13,8 @@ const getApiGames = async () => {
             name: game.name,
             img: game.background_image,
             release: game.released,
-            rating: game.rating
+            rating: game.rating,
+            genres: game.genres.map(g => g.name)
         }
         games.push(juego)
         })   
