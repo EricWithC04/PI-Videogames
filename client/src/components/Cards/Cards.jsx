@@ -2,14 +2,12 @@ import React from 'react';
 import { useSelector } from "react-redux";
 import Card from '../Card/Card';
 
-const Cards = () => {
-
-    const allGames = useSelector(state => state.allGames)
+const Cards = ({ pageGames }) => {
 
     return (
         <div>
             {
-                allGames.length ? allGames.map(game => {
+                pageGames.length ? pageGames.map(game => {
                     return (
                         <Card
                         img={game.img}
