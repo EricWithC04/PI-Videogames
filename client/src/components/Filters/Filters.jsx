@@ -37,7 +37,7 @@ const Filters = ({ setPage, setFilter }) => {
                 {
                     genres.length ? genres.map(genre => {
                         return (
-                            <option value={genre.name}>{genre.name}</option>
+                            <option value={genre.name} key={genre.id}>{genre.name}</option>
                         )
                     }) : <option></option>
                 }

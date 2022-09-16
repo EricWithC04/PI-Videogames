@@ -18,6 +18,17 @@ export const getAllGames = () => {
     }
 }
 
+export const getGameDetail = (id) => {
+    return async function (dispatch) {
+        const gameDetail = await fetch(`http://localhost:3001/videogames/${id}`)
+            .then(response => response.json())
+        dispatch({
+            type: GET_GAME_DETAIL,
+            payload: gameDetail
+        })
+    }
+}
+
 export const getGenres = () => {
     return async function (dispatch) {
         const allGenres = await fetch("http://localhost:3001/genres")

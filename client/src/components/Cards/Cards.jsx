@@ -9,6 +9,7 @@ const Cards = ({ pageGames }) => {
                 pageGames.length ? pageGames.map(game => {
                     return (
                         <Card
+                        id={game.id}
                         img={game.img}
                         name={game.name}
                         genres={game.genres}

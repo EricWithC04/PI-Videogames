@@ -3,6 +3,7 @@ import LandingPage from "./components/LandingPage/LandingPage.jsx";
 import Home from "./components/Home/Home.jsx";
 import Error404 from "./components/Error404/Error404.jsx";
 import CreateGame from "./components/CreateGame/CreateGame.jsx";
+import Detail from "./components/Detail/Detail.jsx";
 import './App.css';
 
 function App() {
@@ -20,6 +21,10 @@ function App() {
         <Route 
           path="/Home/CreateGame"
           component={CreateGame}
+        />
+        <Route 
+          path="/Home/:idGame"
+          component={Detail}
         />
         <Route 
           path="*"

@@ -16,7 +16,7 @@ const Paginated = ({ setPage, allGames, gamesPerPage }) => {
                     numbers.length ? numbers.map(number => {
                         return (
                             <li>
-                                <a onClick={() => setPage(number)}>
+                                <a onClick={() => setPage(number)} key={number}>
                                     {number}
                                 </a>
                             </li>
