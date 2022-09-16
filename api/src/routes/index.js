@@ -37,10 +37,16 @@ router.get("/videogames", async (req, res) => {
 router.get("/videogames/:idVideogame", async (req, res) => {
     try {
         const { idVideogame } = req.params;
-        const game = await getGameDetail(idVideogame);
-        game ?
-        res.status(200).send(game) :
-        res.status(404).send("Este ID no pertenece a ningún juego")
+        const allGames = await getAllGames();
+        const filterGame = await allGames.filter(game => game.id === idVideogame);
+        if (filterGame.length) {
+            res.status(200).send(filterGame[0])
+        } else {
+            const game = await getGameDetail(idVideogame);
+            game ?
+            res.status(200).send(game) :
+            res.status(404).send("Este ID no pertenece a ningún juego")
+        }
     } catch(error) {
         console.error(error);
         res.status(404).send("Ha ocurrido un error durante la peticion")

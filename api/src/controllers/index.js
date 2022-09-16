@@ -64,7 +64,8 @@ const getGameDetail = async (id) => {
         description: searchGame.data.description_raw,
         release: searchGame.data.released,
         rating: searchGame.data.rating,
-        platforms: searchGame.data.parent_platforms.map(p => p.platform.name)
+        platforms: searchGame.data.parent_platforms.map(p => p.platform.name),
+        genres: searchGame.data.genres.map(g => g.name)
     }
 }
 
