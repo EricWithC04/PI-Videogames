@@ -17,28 +17,41 @@ const Home = () => {
     }, [])
 
     const allGames = useSelector(state => state.allGames);
+    const filteredGames = useSelector(state => state.filteredGames)
     
     const [ actualPage, setActualPage ] = useState(1);
-    const [ gamesPerPage, setGamesPerPage ] = useState(12);
+    const [ gamesPerPage, setGamesPerPage ] = useState(15);
+    const [ filter, setFilter ] = useState(false);
     const lastGame = actualPage * gamesPerPage;
     const firstGame = lastGame - gamesPerPage;
     const paginated = (num) => {
         setActualPage(num)
     }
-    const currentPage = allGames.slice(firstGame, lastGame);
+    const filters = (value) => {
+        setFilter(value)
+    }
+
+    const currentPage = filter ? 
+        filteredGames.slice(firstGame, lastGame) : 
+        allGames.slice(firstGame, lastGame)
 
     return (
         <div>
             <h1>Bienvenido a mi PI-Videogames</h1>
             <NavBar></NavBar>
-            <Orders></Orders>
-            <Filters></Filters>
+            <Orders 
+                setPage={paginated}
+            />
+            <Filters 
+                setPage={paginated}
+                setFilter={filters}
+            />
             <Link to="/Home/CreateGame">
                 <button>Crear Videojuego</button>
             </Link>
             <Paginated 
                 setPage={paginated}
-                allGames={allGames.length}
+                allGames={filter ? filteredGames.length : allGames.length}
                 gamesPerPage={gamesPerPage}
             />
             <Cards 

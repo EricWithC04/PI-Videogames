@@ -1,4 +1,5 @@
 import React from 'react';
+import styles from "./Paginated.module.css";
 
 const Paginated = ({ setPage, allGames, gamesPerPage }) => {
 
@@ -10,7 +11,7 @@ const Paginated = ({ setPage, allGames, gamesPerPage }) => {
 
     return (
         <nav>
-            <ul>
+            <ul className={styles.numContainer}>
                 {
                     numbers.length ? numbers.map(number => {
                         return (

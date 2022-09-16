@@ -2,3 +2,7 @@ export const GET_ALL_GAMES = "GET_ALL_GAMES";
 export const GET_GAME_DETAIL = "GET_GAME_DETAIL";
 export const GET_PLATFORMS = "GET_PLATFORMS";
 export const GET_GENRES = "GET_GENRES";
+export const ORDER_BY_NAME = "ORDER_BY_NAME";
+export const ORDER_BY_RATING = "ORDER_BY_RATING";
+export const FILTER_BY_GENRE = "FILTER_BY_GENRE";
+export const FILTER_BY_CREATED = "FILTER_BY_CREATED";
