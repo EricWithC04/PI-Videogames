@@ -13,17 +13,6 @@ const Detail = () => {
     }, [dispatch])
 
     const detail = useSelector(state => state.gameDetail)
-    console.log(detail);
-
-    /* if (detail.hasOwnProperty("genres")) {
-        return (
-            
-        )
-    } else {
-        return (
-            <div>Cargando detalles...</div>
-        )
-    } */
 
     return (
         <div>

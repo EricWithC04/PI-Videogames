@@ -1,12 +1,15 @@
 import React from 'react';
 import SearchBar from "../SearchBar/SearchBar.jsx";
 
-const NavBar = () => {
+const NavBar = ({ setPage, setFilter }) => {
     return (
         <div>
             <img src="#" alt="logo" />
             <h4>About Me</h4>
-            <SearchBar></SearchBar>
+            <SearchBar 
+                setPage={setPage}
+                setFilter={setFilter}
+            />
         </div>
     );
 };

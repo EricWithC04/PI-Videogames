@@ -5,7 +5,8 @@ import { GET_ALL_GAMES,
          ORDER_BY_NAME,
          ORDER_BY_RATING,
          FILTER_BY_GENRE,
-         FILTER_BY_CREATED } from "../action-types/index.js";
+         FILTER_BY_CREATED,
+         BROWSE_GAME } from "../action-types/index.js";
 
 export const getAllGames = () => {
     return async function (dispatch) {
@@ -79,6 +80,26 @@ export const filterByCreated = (created) => {
         dispatch({
             type: FILTER_BY_CREATED,
             payload: created
+        })
+    }
+}
+
+export const setBrowseGame = (games) => {
+    return async function (dispatch) {
+        dispatch({
+            type: BROWSE_GAME,
+            payload: games
+        })
+    }
+}
+
+export const browseApiGame = (name) => {
+    return async function (dispatch) {
+        const browsed = await fetch(`http://localhost:3001/videogames?name=${name}`)
+            .then(response => response.json())
+        dispatch({
+            type: BROWSE_GAME,
+            payload: browsed
         })
     }
 }

@@ -5,7 +5,8 @@ import { GET_ALL_GAMES,
          ORDER_BY_NAME,
          ORDER_BY_RATING,
          FILTER_BY_GENRE,
-         FILTER_BY_CREATED } from "../action-types/index.js";
+         FILTER_BY_CREATED,
+         BROWSE_GAME } from "../action-types/index.js";
 
 const initialState = {
     allGames: [],
@@ -68,6 +69,11 @@ const rootReducer = (state = initialState, action) => {
             return {
                 ...state,
                 filteredGames: filterCreateds
+            }
+        case BROWSE_GAME:
+            return {
+                ...state,
+                filteredGames: action.payload
             }
         default: return state;
     }

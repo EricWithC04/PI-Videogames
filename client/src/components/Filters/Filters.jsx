@@ -30,6 +30,12 @@ const Filters = ({ setPage, setFilter }) => {
         }
     }
 
+    const handleRefresh = (e) => {
+        e.preventDefault();
+        setFilter(false);
+        setPage(1);
+    }
+
     return (
         <div>
             <select onChange={(e) => handleFilterGenre(e)}>
@@ -47,6 +53,7 @@ const Filters = ({ setPage, setFilter }) => {
                 <option value="exist">Existente</option>
                 <option value="create">Creado</option>
             </select>
+            <button onClick={(e) => handleRefresh(e)}>Refresh</button>
         </div>
     );
 };

@@ -38,7 +38,10 @@ const Home = () => {
     return (
         <div>
             <h1>Bienvenido a mi PI-Videogames</h1>
-            <NavBar></NavBar>
+            <NavBar 
+                setPage={paginated}
+                setFilter={filters}
+            />
             <Orders 
                 setPage={paginated}
             />
