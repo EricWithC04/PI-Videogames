@@ -50,7 +50,9 @@ const searchApiGames = async (info) => {
             name: game.name,
             img: game.background_image,
             release: game.released,
-            rating: game.rating
+            rating: game.rating,
+            genres: game.genres.map(g => g.name),
+            platforms: game.parent_platforms.map(p => p.platform.name)
         }
     })
     return games
