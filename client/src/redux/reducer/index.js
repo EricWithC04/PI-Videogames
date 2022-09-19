@@ -12,7 +12,8 @@ const initialState = {
     allGames: [],
     gameDetail: {},
     filteredGames: [],
-    allGenres: []
+    allGenres: [],
+    allPlatforms: []
 }
 
 const rootReducer = (state = initialState, action) => {
@@ -31,6 +32,11 @@ const rootReducer = (state = initialState, action) => {
             return {
                 ...state,
                 allGenres: action.payload
+            }
+        case GET_PLATFORMS:
+            return {
+                ...state,
+                allPlatforms: action.payload
             }
         case ORDER_BY_NAME:
             const orderName = action.payload === "ascendente" ? state.allGames.sort((a, b) => {

@@ -43,8 +43,12 @@ export const getGenres = () => {
 
 export const getPlatforms = () => {
     return async function (dispatch) {
-        const allGenres = await fetch("http://localhost:3001/platforms")
+        const allPlatforms = await fetch("http://localhost:3001/platforms")
             .then(response => response.json())
+        dispatch({
+            type: GET_PLATFORMS,
+            payload: allPlatforms
+        })
     }
 }
 

@@ -7,6 +7,7 @@ const SearchBar = ({ setPage, setFilter }) => {
     const dispatch = useDispatch()
     const [inputText, setInputText] = useState("")
     const games = useSelector(state => state.allGames)
+    console.log(games)
 
     const handleChange = (e) => {
         e.preventDefault()

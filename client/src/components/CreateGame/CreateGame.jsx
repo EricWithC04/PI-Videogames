@@ -1,26 +1,15 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+import CreateGameForm from '../CreateGameForm/CreateGameForm';
 
 const CreateGame = () => {
     return (
-        <form>
-            <label>Nombre</label>
-            <input type="text" />
-            <label>Descripción</label>
-            <input type="text" />
-            <label>Fecha de Lanzamiento</label>
-            <input type="text" />
-            <label>Rating</label>
-            <input type="text" />
-            <select>
-                <option value="">Elegir Genero</option>
-            </select>
-            <input type="text" />
-            <select>
-                <option value="">Elegir Plataformas</option>
-            </select>
-            <input type="text" />
-            <button type="submit">Crear Videojuego</button>
-        </form>
+        <div>
+            <Link to="/Home">
+                <img src="https://assets.stickpng.com/images/585e4695cb11b227491c3373.png" alt="back" />
+            </Link>
+            <CreateGameForm></CreateGameForm>
+        </div>
     );
 };
 
