@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { getGenres, getPlatforms } from '../../redux/actions';
+import { getGenres, getPlatforms, createGame } from '../../redux/actions';
 
 const CreateGameForm = () => {
 
@@ -42,8 +42,8 @@ const CreateGameForm = () => {
         else if (!input.rating) errors.rating = "Debes añadir el rating"
         else if (input.rating < 1) errors.rating = "El rating debe ser mayor a 1"
         else if (input.rating > 5) errors.rating = "El rating debe ser menor a 5"
-        else if (!input.genres.length) errors.genres = "Debes añadir al menos un genero"
-        else if (!input.platforms.length) errors.platforms = "Debes añadir al menos una plataforma"
+        else if (!gameGenres.length) errors.genres = "Debes añadir al menos un genero"
+        else if (!gamePlatforms.length) errors.platforms = "Debes añadir al menos una plataforma"
         return errors
     }
 
@@ -100,7 +100,12 @@ const CreateGameForm = () => {
             ) {
             alert("Por favor, completa los campos requeridos!")
         } else {
-            const newGame = {...input}
+            const newGame = {
+                ...input, 
+                genres: [...gameGenres],
+                platforms: [...gamePlatforms]
+            }
+            dispatch(createGame(newGame))
             setInput({
                 name: "",
                 img: "",
@@ -110,7 +115,8 @@ const CreateGameForm = () => {
                 genres: [],
                 platforms: []
             })
-            dispatch()
+            setGameGenres([])
+            setGamePlatforms([])
         }
     }
 
