@@ -1,3 +1,4 @@
+import axios from "axios";
 import { GET_ALL_GAMES,
          GET_GAME_DETAIL, 
          GET_GENRES, 
@@ -6,7 +7,8 @@ import { GET_ALL_GAMES,
          ORDER_BY_RATING,
          FILTER_BY_GENRE,
          FILTER_BY_CREATED,
-         BROWSE_GAME } from "../action-types/index.js";
+         BROWSE_GAME,
+         CREATE_GAME } from "../action-types/index.js";
 
 export const getAllGames = () => {
     return async function (dispatch) {
@@ -104,6 +106,16 @@ export const browseApiGame = (name) => {
         dispatch({
             type: BROWSE_GAME,
             payload: browsed
+        })
+    }
+}
+
+export const createGame = (game) => {
+    return async function (dispatch) {
+        const newGame = await axios.post("http://localhost:3001/videogames", game)
+        return dispatch({
+            type: CREATE_GAME,
+            payload: newGame.data
         })
     }
 }

@@ -7,3 +7,4 @@ export const ORDER_BY_RATING = "ORDER_BY_RATING";
 export const FILTER_BY_GENRE = "FILTER_BY_GENRE";
 export const FILTER_BY_CREATED = "FILTER_BY_CREATED";
 export const BROWSE_GAME = "BROWSE_GAME";
+export const CREATE_GAME = "CREATE_GAME";

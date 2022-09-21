@@ -19,6 +19,8 @@ const CreateGameForm = () => {
         date: /^(0[1-9]|1\d|2\d|3[01])\/(0[1-9]|1[0-2])\/(1[0-9][0-9][0-9]|2[0-9][0-9][0-9])$/
     }
     const [ errors, setErrors] = useState({})
+    const [ gameGenres, setGameGenres ] = useState([])
+    const [ gamePlatforms, setGamePlatforms ] = useState([])
     const [ input, setInput ] = useState({
         name: "",
         img: "",
@@ -57,8 +59,59 @@ const CreateGameForm = () => {
         )
     }
 
+    const handleSelectGenres = (e) => {
+        if (e.target.value.length) {
+            setGameGenres([
+                ...gameGenres,
+                e.target.value
+            ])
+        }
+    }
+
+    const handleSelectPlatforms = (e) => {
+        if (e.target.value.length) {
+            setGamePlatforms([
+                ...gamePlatforms,
+                e.target.value
+            ])
+        }
+    }
+
+    const handleDeleteGenre = (g) => {
+        const deleteGenre = gameGenres.filter(genre => genre !== g)
+        setGameGenres(deleteGenre)
+    }
+
+    const handleDeletePlatform = (p) => {
+        const deletePlatform = gamePlatforms.filter(platform => platform !== p)
+        setGamePlatforms(deletePlatform)
+    }
+
     const handleSubmit = (e) => {
         e.preventDefault();
+        if (                 //detecta si el estado "errors" tiene alguna propiedad y tira un mensaje
+            errors.hasOwnProperty("name") ||
+            errors.hasOwnProperty("img") ||
+            errors.hasOwnProperty("desciption") ||
+            errors.hasOwnProperty("release") ||
+            errors.hasOwnProperty("rating") ||
+            errors.hasOwnProperty("genres") ||
+            errors.hasOwnProperty("platforms")
+            ) {
+            alert("Por favor, completa los campos requeridos!")
+        } else {
+            const newGame = {...input}
+            setInput({
+                name: "",
+                img: "",
+                description: "",
+                release: "",
+                rating: 0,
+                genres: [],
+                platforms: []
+            })
+            dispatch()
+        }
     }
 
     return (
@@ -107,29 +160,55 @@ const CreateGameForm = () => {
                 value={input.rating}
             />
             {errors.hasOwnProperty("rating") ? (<p>{errors.rating}</p>) : null}
-            <select>
-                <option value="">Elegir Genero</option>
-                {
-                    allGenres.length ? allGenres.map(genre => {
-                        return (
-                            <option value={genre.name}>{genre.name}</option>
-                        )
-                    }) : <option value=""></option>
-                }
-            </select>
-            <input type="text" />
+            <div>
+                <select onChange={(e) => handleSelectGenres(e)}>
+                    <option value="">Elegir Genero</option>
+                    {
+                        allGenres.length ? allGenres.map(genre => {
+                            return (
+                                <option value={genre.name}>{genre.name}</option>
+                            )
+                        }) : <option value=""></option>
+                    }
+                </select>
+                <div>
+                    {
+                        gameGenres.length ? gameGenres.map(genre => {
+                            return (
+                                <div>
+                                    <p>{genre}</p>
+                                    <button onClick={(e) => handleDeleteGenre(genre)}>X</button>
+                                </div>
+                            )
+                        }) : null
+                    }
+                </div>
+            </div>
             {errors.hasOwnProperty("genres") ? (<p>{errors.genres}</p>) : null}
-            <select>
-                <option value="">Elegir Plataformas</option>
-                {
-                    allPlatforms.length ? allPlatforms.map(platform => {
-                        return (
-                            <option value={platform.name}>{platform.name}</option>
-                        )
-                    }) : <option value=""></option>
-                }
-            </select>
-            <input type="text" />
+            <div>
+                <select onChange={(e) => handleSelectPlatforms(e)}>
+                    <option value="">Elegir Plataformas</option>
+                    {
+                        allPlatforms.length ? allPlatforms.map(platform => {
+                            return (
+                                <option value={platform.name}>{platform.name}</option>
+                            )
+                        }) : <option value=""></option>
+                    }
+                </select>
+                <div>
+                    {
+                        gamePlatforms.length ? gamePlatforms.map(platform => {
+                            return (
+                                <div>
+                                    <p>{platform}</p>
+                                    <button onClick={(e) => handleDeletePlatform(platform)}>X</button>
+                                </div>
+                            )
+                        }) : null
+                    }
+                </div>
+            </div>
             {errors.hasOwnProperty("platforms") ? (<p>{errors.platforms}</p>) : null}
             <button type="submit">Crear Videojuego</button>
         </form>
