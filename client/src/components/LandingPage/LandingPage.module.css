@@ -1,0 +1,40 @@
+.container {
+    min-height: 100vh;
+    background-image: url("../../img/bg-img.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.welcome {
+    display: flex;
+    flex-direction: column;
+    height: 80vh;
+    width: 65%;
+    color: #fff;
+    background-color: #0008;
+    outline: 2px solid black;
+}
+
+.btn {
+    border-radius: 0%;
+    background-color: rgb(85, 169, 238);
+    width: 96px;
+    height: 42px;
+    color: white;
+    border: white;
+    margin: 15px
+}
+
+.btn:hover {
+    cursor: pointer;
+    background-color: rgb(139, 192, 236);
+}
+
+.text {
+    width: 60%;
+    margin: auto
+}
