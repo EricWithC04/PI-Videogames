@@ -1,0 +1,16 @@
+.navBar {
+    display: flex;
+    flex-direction: row;
+    background-color: #999b;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.btn {
+    border-radius: 0%;
+    background-color: rgb(85, 169, 238);
+    width: 86px;
+    height: 36px;
+    color: white;
+    border: white;
+}

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { filterByGenres, filterByCreated, getGenres } from '../../redux/actions';
+import styles from "./Filters.module.css"
 
 const Filters = ({ setPage, setFilter }) => {
 
@@ -53,7 +54,7 @@ const Filters = ({ setPage, setFilter }) => {
                 <option value="exist">Existente</option>
                 <option value="create">Creado</option>
             </select>
-            <button onClick={(e) => handleRefresh(e)}>Refresh</button>
+            <button onClick={(e) => handleRefresh(e)} className={styles.btn}>Refresh</button>
         </div>
     );
 };

@@ -37,7 +37,6 @@ const Home = () => {
 
     return (
         <div>
-            <h1>Bienvenido a mi PI-Videogames</h1>
             <NavBar 
                 setPage={paginated}
                 setFilter={filters}
@@ -49,9 +48,6 @@ const Home = () => {
                 setPage={paginated}
                 setFilter={filters}
             />
-            <Link to="/Home/CreateGame">
-                <button>Crear Videojuego</button>
-            </Link>
             <Paginated 
                 setPage={paginated}
                 allGames={filter ? filteredGames.length : allGames.length}
