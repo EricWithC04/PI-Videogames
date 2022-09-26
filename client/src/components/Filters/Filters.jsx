@@ -38,8 +38,8 @@ const Filters = ({ setPage, setFilter }) => {
     }
 
     return (
-        <div>
-            <select onChange={(e) => handleFilterGenre(e)}>
+        <div className={styles.filterContainer}>
+            <select onChange={(e) => handleFilterGenre(e)} className={styles.genres}>
                 <option value="">Filtrar por genero</option>
                 {
                     genres.length ? genres.map(genre => {
@@ -49,7 +49,7 @@ const Filters = ({ setPage, setFilter }) => {
                     }) : <option></option>
                 }
             </select>
-            <select onChange={(e) => handleFilterCreate(e)}>
+            <select onChange={(e) => handleFilterCreate(e)} className={styles.createds}>
                 <option value="">Filtrar por existente/creado</option>
                 <option value="exist">Existente</option>
                 <option value="create">Creado</option>

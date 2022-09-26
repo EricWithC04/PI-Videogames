@@ -1,0 +1,23 @@
+.orderContainer {
+    display: flex;
+    justify-content: space-around;
+    margin: auto;
+    width: 24%;
+    padding: 4px
+}
+
+.names {
+    height: 30px;
+    width: 150px;
+    background-color: rgb(85, 169, 238);
+    color: white;
+    border: white;
+}
+
+.ratings {
+    height: 30px;
+    width: 150px;
+    background-color: rgb(85, 169, 238);
+    color: white;
+    border: white;
+}

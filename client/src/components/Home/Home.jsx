@@ -5,7 +5,6 @@ import Filters from "../Filters/Filters.jsx";
 import Orders from "../Orders/Orders.jsx";
 import Cards from "../Cards/Cards.jsx";
 import Paginated from '../Paginated/Paginated.jsx';
-import { Link } from 'react-router-dom';
 import { getAllGames } from '../../redux/actions/index.js';
 
 const Home = () => {

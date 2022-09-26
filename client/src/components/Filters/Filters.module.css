@@ -7,3 +7,29 @@
     border: white;
     margin: 2px
 }
+
+.filterContainer {
+    display: flex;
+    justify-content: space-around;
+    margin: auto;
+    width: 32%;
+    padding: 4px
+}
+
+.genres {
+    height: 30px;
+    width: 140px;
+    background-color: rgb(85, 169, 238);
+    color: white;
+    border: white;
+    padding: 5px
+}
+
+.createds {
+    height: 30px;
+    width: 190px;
+    background-color: rgb(85, 169, 238);
+    color: white;
+    border: white;
+    padding: 5px
+}
