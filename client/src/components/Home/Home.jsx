@@ -6,6 +6,7 @@ import Orders from "../Orders/Orders.jsx";
 import Cards from "../Cards/Cards.jsx";
 import Paginated from '../Paginated/Paginated.jsx';
 import { getAllGames } from '../../redux/actions/index.js';
+import styles from "./Home.module.css";
 
 const Home = () => {
 
@@ -35,7 +36,7 @@ const Home = () => {
         allGames.slice(firstGame, lastGame)
 
     return (
-        <div>
+        <div className={styles.container}>
             <NavBar 
                 setPage={paginated}
                 setFilter={filters}

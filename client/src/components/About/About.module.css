@@ -1,0 +1,29 @@
+.aboutContainer {
+    display: flex;
+    min-height: 100vh;
+    justify-content: space-around;
+    align-items: center;
+    background-image: url("../../img/bgAbout-img.webp");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+.text {
+    background-color: #000c;
+    color: white;
+    margin: 5px;
+    border-radius: 15px;
+    height: 60vh;
+    font-size: 24px;
+    padding: 8px;
+}
+
+.name {
+    background-color: #000c;
+    color: white;
+    margin: 5px;
+    border-radius: 15px;
+    width: 80vw;
+    height: 60vh;
+}

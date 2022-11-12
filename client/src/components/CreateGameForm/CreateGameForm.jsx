@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getGenres, getPlatforms, createGame } from '../../redux/actions';
+import styles from "./CreateGameForm.module.css";
 
 const CreateGameForm = () => {
 
@@ -61,19 +62,23 @@ const CreateGameForm = () => {
 
     const handleSelectGenres = (e) => {
         if (e.target.value.length) {
-            setGameGenres([
-                ...gameGenres,
-                e.target.value
-            ])
+            if (!gameGenres.includes(e.target.value)) {
+                setGameGenres([
+                    ...gameGenres,
+                    e.target.value
+                ])
+            }
         }
     }
 
     const handleSelectPlatforms = (e) => {
         if (e.target.value.length) {
-            setGamePlatforms([
-                ...gamePlatforms,
-                e.target.value
-            ])
+            if (!gamePlatforms.includes(e.target.value)) {
+                setGamePlatforms([
+                    ...gamePlatforms,
+                    e.target.value
+                ])
+            }
         }
     }
 
@@ -89,6 +94,7 @@ const CreateGameForm = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
+        setErrors(validate(input))
         if (                 //detecta si el estado "errors" tiene alguna propiedad y tira un mensaje
             errors.hasOwnProperty("name") ||
             errors.hasOwnProperty("img") ||
@@ -121,53 +127,58 @@ const CreateGameForm = () => {
     }
 
     return (
-        <form onSubmit={(e) => handleSubmit(e)}>
-            <label>Nombre</label>
+        <form onSubmit={(e) => handleSubmit(e)} className={styles.formContainer}>
+            <label className={styles.txt}>Nombre</label>
             <input 
                 name='name' 
                 onChange={(e) => handleChange(e)} 
                 type="text" 
                 value={input.name}
                 placeholder="nombre del juego..."
+                className={styles.input}
             />
-            {errors.hasOwnProperty("name") ? (<p>{errors.name}</p>) : null}
-            <label>Imagen</label>
+            {errors.hasOwnProperty("name") ? (<p className={styles.errors}>{errors.name}</p>) : null}
+            <label className={styles.txt}>Imagen</label>
             <input 
                 name='img' 
                 onChange={(e) => handleChange(e)} 
                 type="text" 
                 value={input.img}
                 placeholder="https://imagen..."
+                className={styles.input}
             />
-            {errors.hasOwnProperty("img") ? (<p>{errors.img}</p>) : null}
-            <label>Descripción</label>
+            {errors.hasOwnProperty("img") ? (<p className={styles.errors}>{errors.img}</p>) : null}
+            <label className={styles.txt}>Descripción</label>
             <input 
                 name='description' 
                 onChange={(e) => handleChange(e)} 
                 type="text" 
                 value={input.description}
                 placeholder="descripción..."
+                className={styles.input}
             />
-            {errors.hasOwnProperty("description") ? (<p>{errors.description}</p>) : null}
-            <label>Fecha de Lanzamiento</label>
+            {errors.hasOwnProperty("description") ? (<p className={styles.errors}>{errors.description}</p>) : null}
+            <label className={styles.txt}>Fecha de Lanzamiento</label>
             <input 
                 name='release' 
                 onChange={(e) => handleChange(e)} 
                 type="text" 
                 value={input.release}
                 placeholder="dd/mm/year"
+                className={styles.input}
             />
-            {errors.hasOwnProperty("release") ? (<p>{errors.release}</p>) : null}
-            <label>Rating</label>
+            {errors.hasOwnProperty("release") ? (<p className={styles.errors}>{errors.release}</p>) : null}
+            <label className={styles.txt}>Rating</label>
             <input 
                 name='rating' 
                 onChange={(e) => handleChange(e)} 
                 type="number" 
                 value={input.rating}
+                className={styles.input}
             />
-            {errors.hasOwnProperty("rating") ? (<p>{errors.rating}</p>) : null}
+            {errors.hasOwnProperty("rating") ? (<p className={styles.errors}>{errors.rating}</p>) : null}
             <div>
-                <select onChange={(e) => handleSelectGenres(e)}>
+                <select onChange={(e) => handleSelectGenres(e)} className={styles.genres}>
                     <option value="">Elegir Genero</option>
                     {
                         allGenres.length ? allGenres.map(genre => {
@@ -181,7 +192,7 @@ const CreateGameForm = () => {
                     {
                         gameGenres.length ? gameGenres.map(genre => {
                             return (
-                                <div>
+                                <div className={styles.selecteds}>
                                     <p>{genre}</p>
                                     <button onClick={(e) => handleDeleteGenre(genre)}>X</button>
                                 </div>
@@ -190,9 +201,9 @@ const CreateGameForm = () => {
                     }
                 </div>
             </div>
-            {errors.hasOwnProperty("genres") ? (<p>{errors.genres}</p>) : null}
+            {errors.hasOwnProperty("genres") ? (<p className={styles.errors}>{errors.genres}</p>) : null}
             <div>
-                <select onChange={(e) => handleSelectPlatforms(e)}>
+                <select onChange={(e) => handleSelectPlatforms(e)} className={styles.platforms}>
                     <option value="">Elegir Plataformas</option>
                     {
                         allPlatforms.length ? allPlatforms.map(platform => {
@@ -206,17 +217,17 @@ const CreateGameForm = () => {
                     {
                         gamePlatforms.length ? gamePlatforms.map(platform => {
                             return (
-                                <div>
+                                <div className={styles.selecteds}>
                                     <p>{platform}</p>
-                                    <button onClick={(e) => handleDeletePlatform(platform)}>X</button>
+                                    <button onClick={(e) => handleDeletePlatform(platform)} className={styles.delete}>X</button>
                                 </div>
                             )
                         }) : null
                     }
                 </div>
             </div>
-            {errors.hasOwnProperty("platforms") ? (<p>{errors.platforms}</p>) : null}
-            <button type="submit">Crear Videojuego</button>
+            {errors.hasOwnProperty("platforms") ? (<p className={styles.errors}>{errors.platforms}</p>) : null}
+            <button type="submit" className={styles.submit}>Crear Videojuego</button>
         </form>
     );
 };

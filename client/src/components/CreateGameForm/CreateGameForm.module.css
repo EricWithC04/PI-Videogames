@@ -1,0 +1,76 @@
+.formContainer {
+    margin: 10px;
+    padding: 8px;
+    height: 85vh;
+    width: 40vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    border-radius: 15px;
+    background-color: #000b;
+    color: white;
+    outline: 2px solid black;
+}
+
+.txt {
+    align-self: flex-start;
+}
+
+.input {
+    height: 30px;
+}
+
+.submit {
+    border-radius: 0%;
+    background-color: rgb(85, 169, 238);
+    width: 40%;
+    height: 36px;
+    color: white;
+    border: white;
+    align-self: center;
+}
+
+.submit:hover {
+    cursor: pointer;
+    background-color: rgb(139, 192, 236);
+}
+
+.genres {
+    height: 27px;
+    width: 140px;
+    background-color: rgb(85, 169, 238);
+    color: white;
+    border: white;
+    padding: 5px
+}
+
+.platforms {
+    height: 30px;
+    width: 155px;
+    background-color: rgb(85, 169, 238);
+    color: white;
+    border: white;
+    padding: 5px
+}
+
+.errors {
+    background-color: red;
+    color: white;
+    border-radius: 5px;
+}
+
+.selecteds {
+    display: flex;
+    align-items: center;
+    height: 25px;
+    width: 25%;
+    outline: 1px solid black;
+    background-color: #000b;
+}
+
+.selecteds button {
+    background-color: red;
+    color: white;
+    border: none;
+    border-radius: 3px;
+}

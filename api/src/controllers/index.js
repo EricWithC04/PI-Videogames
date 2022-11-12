@@ -1,5 +1,5 @@
 const axios = require("axios");
-const { Videogame, Genre } = require("../db.js")
+const { Videogame, Genre, Platform } = require("../db.js")
 require("dotenv").config();
 const { API_KEY } = process.env;
 
@@ -19,12 +19,12 @@ const getApiGames = async () => {
         games.push(juego)
         })   
     }
-    
+
     return games;
 }
 
 const getGamesDB = async () => {
-    return await Videogame.findAll({
+    const gamesDB = await Videogame.findAll({
         include: {
             model: Genre,
             attributes: ["name"],
@@ -33,6 +33,8 @@ const getGamesDB = async () => {
             }
         }
     })
+    console.log(gamesDB);
+    return gamesDB
 }
 
 const getAllGames = async () => {

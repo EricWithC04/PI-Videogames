@@ -15,9 +15,10 @@ const Cards = ({ pageGames }) => {
                             img={game.img}
                             name={game.name}
                             genres={game.genres}
+                            created={game.createDB}
                             />
                         )
-                    }) : <div>Cargando videojuegos...</div>
+                    }) : <div className={styles.loading}><h1>Cargando videojuegos...</h1></div>
                 }
             </div>  
         </div>

@@ -85,20 +85,14 @@ router.post("/videogames", async (req, res) => {
         }
 
         let newGame = await Videogame.create({
-            name, description, release, rating, img
+            name, description, release, rating, img, platform: platforms.join("-")
         })
 
-        if (genres) {
+        if (genres.length) {
             let genreDB = await Genre.findAll({
                 where: { name: genres }
             })
             newGame.addGenre(genreDB)
-        }
-        if (platforms) {
-            let platformDB = await Platform.findAll({
-                where: { name: platforms }
-            })
-            newGame.addPlatform(platformDB)
         }
 
         res.status(201).send("Videojuego creado con exito")

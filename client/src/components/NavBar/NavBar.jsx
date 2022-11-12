@@ -7,7 +7,9 @@ const NavBar = ({ setPage, setFilter }) => {
     return (
         <div className={styles.navBar}>
             <img src="#" alt="logo" />
-            <h4 className={styles.text}>About Me</h4>
+            <Link to="/Home/AboutMe" style={{ textDecoration: "none" }}>
+                <h4 className={styles.text}>About Me</h4>
+            </Link>
             <Link to="/Home/CreateGame" style={{ textDecoration: "none" }}>
                 <h4 className={styles.text}>Crear Videojuego</h4>
             </Link>

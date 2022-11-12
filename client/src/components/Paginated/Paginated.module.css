@@ -3,4 +3,14 @@
     flex-direction: row;
     list-style: none;
     justify-content: space-around;
+    width: 80vw;
+    margin: auto;
+    margin-top: 25px;
+    margin-bottom: 25px;
+    background-color: rgb(85, 169, 238);
+    outline: 1px solid white;
+}
+
+.number {
+    color: white;
 }

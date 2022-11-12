@@ -1,0 +1,39 @@
+.createGameForm {
+    display: flex;
+    flex-direction: column;
+    background-image: url("../../img/bgCreate-img.jpeg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+.backContainer {
+    display: flex;
+    height: 28px;
+    background-color: #000d;
+    padding: 14px;
+    outline: 2px solid black;
+}
+
+.back {
+    align-self: flex-start;
+}
+
+.infoAndForm {
+    display: flex;
+    justify-content: space-between;
+}
+
+.info {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px;
+    height: 75vh;
+    width: 55%;
+    background-color: #000b;
+    color: white;
+    font-size: 24px;
+    border-radius: 15px;
+    outline: 2px solid black;
+}

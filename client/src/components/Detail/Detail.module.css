@@ -1,0 +1,45 @@
+.container {
+    background-image: url("../../img/bg3-img.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    min-height: 100vh;
+}
+
+.detailContainer {
+    display: flex;
+    flex-direction: row;
+    margin: 5px;
+    padding: 4px;
+    color: white;
+}
+
+.image {
+    width: 90%
+}
+
+.game {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 35%;
+    height: 80vh;
+    padding: 4px;
+    background-color: #000b;
+    border-radius: 15px;
+    margin: 1px;
+}
+
+.gameInfo {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 60%;
+    height: 84vh;
+    padding: 12xp;
+    background-color: #000b;
+    border-radius: 15px;
+    margin: 1px;
+}

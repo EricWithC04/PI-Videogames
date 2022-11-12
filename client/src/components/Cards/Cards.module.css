@@ -1,6 +1,7 @@
 .container {
     display: flex;
     justify-content: center;
+    min-height: 100vh;
 }
 
 .cardsContainer {
@@ -9,4 +10,9 @@
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-gap: 8px;
+}
+
+.loading {
+    grid-column-start: 2;
+    grid-column-end: 2;
 }
