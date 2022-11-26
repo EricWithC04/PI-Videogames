@@ -1,4 +1,5 @@
 .createGameForm {
+    height: 100vh;
     display: flex;
     flex-direction: column;
     background-image: url("../../img/bgCreate-img.jpeg");
@@ -9,14 +10,17 @@
 
 .backContainer {
     display: flex;
-    height: 28px;
-    background-color: #000d;
+    flex-direction: row;
+    height: 30px;
+    background-color: rgba(255, 255, 255, 0.5);
     padding: 14px;
     outline: 2px solid black;
 }
 
-.back {
-    align-self: flex-start;
+.backContainer img {
+    width: 8%;
+    margin-top: -3%;
+    margin-left: -90%;
 }
 
 .infoAndForm {

@@ -95,6 +95,16 @@ const CreateGameForm = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
         setErrors(validate(input))
+        if (
+            !input.name.length &&
+            !input.img.length &&
+            !input.description.length &&
+            !input.release.length &&
+            !input.rating &&
+            !gameGenres.length
+        ) {
+            alert("Por favor, completa los campos requeridos")
+        } else {
         if (                 //detecta si el estado "errors" tiene alguna propiedad y tira un mensaje
             errors.hasOwnProperty("name") ||
             errors.hasOwnProperty("img") ||
@@ -124,7 +134,7 @@ const CreateGameForm = () => {
             setGameGenres([])
             setGamePlatforms([])
         }
-    }
+    }}
 
     return (
         <form onSubmit={(e) => handleSubmit(e)} className={styles.formContainer}>

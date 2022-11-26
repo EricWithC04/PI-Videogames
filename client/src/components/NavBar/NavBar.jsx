@@ -6,7 +6,9 @@ import styles from "./NavBar.module.css";
 const NavBar = ({ setPage, setFilter }) => {
     return (
         <div className={styles.navBar}>
-            <img src="#" alt="logo" />
+            <Link to="/Home" style={{ textDecoration: "none" }}>
+                <img src="#" alt="logo" />
+            </Link>
             <Link to="/Home/AboutMe" style={{ textDecoration: "none" }}>
                 <h4 className={styles.text}>About Me</h4>
             </Link>

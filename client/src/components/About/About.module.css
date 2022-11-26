@@ -1,29 +1,57 @@
-.aboutContainer {
-    display: flex;
-    min-height: 100vh;
-    justify-content: space-around;
-    align-items: center;
+.container {
+    height: 100vh;
     background-image: url("../../img/bgAbout-img.webp");
     background-repeat: no-repeat;
-    background-position: center;
+    background-position: top;
     background-size: cover;
 }
 
+.back {
+    text-decoration: none;
+    height: 16vh;
+    display: flex;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.4);
+}
+
+.back img {
+    height: 15vh;
+    width: 8vw;
+    padding-left: 3%;
+}
+
+.back img:hover {
+    cursor: pointer;
+}
+
+.aboutContainer {
+    display: flex;
+    height: 80vh;
+    justify-content: space-around;
+    align-items: center;
+}
+
 .text {
+    display: flex;
+    align-items: center;
     background-color: #000c;
     color: white;
     margin: 5px;
     border-radius: 15px;
-    height: 60vh;
+    height: 95%;
     font-size: 24px;
     padding: 8px;
 }
 
 .name {
+    display: flex;
+    justify-content: center;
     background-color: #000c;
     color: white;
     margin: 5px;
     border-radius: 15px;
     width: 80vw;
-    height: 60vh;
+    height: 95%;
 }
+
+

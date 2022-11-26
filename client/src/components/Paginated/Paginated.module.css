@@ -14,3 +14,7 @@
 .number {
     color: white;
 }
+
+.numItem:hover {
+    cursor: pointer;
+}

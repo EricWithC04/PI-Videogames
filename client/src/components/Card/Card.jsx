@@ -8,9 +8,11 @@ const Card = ({ id, img, name, genres, created }) => {
 
     return (
         <div className={styles.card}>
-          <Link to={`/Home/${id}`}>
-            <img src={img} className={styles.image} alt="image" />
-          </Link>
+          <div className={styles.image}>
+            <Link to={`/Home/${id}`}>
+              <img src={img} alt="image" />
+            </Link>
+          </div>
           <h4>{name}</h4>
           <p>{generos.join(" - ")}</p>
         </div>

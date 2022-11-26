@@ -8,6 +8,11 @@
     margin: 2px
 }
 
+.btn:hover {
+    cursor: pointer;
+    background-color: rgb(139, 192, 236);
+}
+
 .filterContainer {
     display: flex;
     justify-content: space-around;
@@ -25,6 +30,10 @@
     padding: 5px
 }
 
+.genres:hover {
+    cursor: pointer;
+}
+
 .createds {
     height: 30px;
     width: 190px;
@@ -32,4 +41,8 @@
     color: white;
     border: white;
     padding: 5px
+}
+
+.createds:hover {
+    cursor: pointer;
 }

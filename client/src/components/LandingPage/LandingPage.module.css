@@ -19,6 +19,14 @@
     outline: 2px solid black;
 }
 
+.welcome h1 {
+    font-size: 40px;
+}
+
+.welcome p {
+    font-size: 24px;
+}
+
 .btn {
     border-radius: 0%;
     background-color: rgb(85, 169, 238);
@@ -35,6 +43,6 @@
 }
 
 .text {
-    width: 60%;
+    width: 70%;
     margin: auto
 }
