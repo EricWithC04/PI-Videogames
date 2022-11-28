@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { browseApiGame, setBrowseGame } from '../../redux/actions';
+import { useHistory } from "react-router-dom";
+import { browseApiGame } from '../../redux/actions';
 import styles from "./SearchBar.module.css";
 
 const SearchBar = ({ setPage, setFilter }) => {
 
     const dispatch = useDispatch()
+    const history = useHistory();
     const [inputText, setInputText] = useState("")
     const games = useSelector(state => state.allGames)
     console.log(games)

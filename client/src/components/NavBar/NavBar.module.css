@@ -6,6 +6,17 @@
     align-items: center;
 }
 
+.image {
+    display: flex;
+    justify-content: center;
+    width: 5%;
+}
+
+.image img {
+    padding: 5px;
+    width: 100%;
+}
+
 .btn {
     border-radius: 0%;
     background-color: rgb(85, 169, 238);

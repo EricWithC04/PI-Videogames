@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import back from "../../img/back.png";
 import CreateGameForm from '../CreateGameForm/CreateGameForm';
 import NavBar from '../NavBar/NavBar';
 import styles from "./CreateGame.module.css";
@@ -9,11 +8,6 @@ const CreateGame = () => {
     return (
         <div className={styles.createGameForm}>
             <NavBar />
-            {/* <div className={styles.backContainer}>
-                <Link to="/Home" className={styles.back}>
-                    <img src={back} alt="back" />
-                </Link>
-            </div> */}
             <div className={styles.infoAndForm}>
                 <p className={styles.info}>
                     Bienvenido a la ruta de creación de videojuego!! En esta sección

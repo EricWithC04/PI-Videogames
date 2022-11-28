@@ -1,9 +1,10 @@
 import React, { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { getGameDetail } from '../../redux/actions';
+import { clearGame, getGameDetail } from '../../redux/actions';
 import { Link } from 'react-router-dom';
 import styles from "./Detail.module.css";
+import NavBar from '../NavBar/NavBar';
 
 const Detail = () => {
 
@@ -12,6 +13,7 @@ const Detail = () => {
 
     useEffect(() => {
         dispatch(getGameDetail(idGame))
+        return dispatch(clearGame())
     }, [dispatch])
 
     const detail = useSelector(state => state.gameDetail)
@@ -19,9 +21,7 @@ const Detail = () => {
 
     return (
         <div className={styles.container}>
-            <Link to="/Home">
-                <h3>Volver</h3>
-            </Link>
+            <NavBar />
             {
                 detail.hasOwnProperty("genres") ? (
                     <div className={styles.detailContainer}>
@@ -45,7 +45,7 @@ const Detail = () => {
                             <p>{detail.createDB ? detail.platform : detail.platforms.join(" - ")}</p>
                         </div>
                     </div>
-                ) : <div>Cargando detalles...</div> 
+                ) : <div className={styles.loading}>Cargando detalles...</div> 
             }
         </div>
     )

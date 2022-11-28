@@ -37,9 +37,19 @@
     justify-content: center;
     align-items: center;
     width: 60%;
-    height: 84vh;
+    min-height: 84vh;
     padding: 12xp;
     background-color: #000b;
     border-radius: 15px;
     margin: 1px;
+}
+
+.loading {
+    height: 85vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 36px;
+    color: #fff;
 }

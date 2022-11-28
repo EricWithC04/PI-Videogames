@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import back from "../../img/back.png";
 import NavBar from '../NavBar/NavBar';
 import styles from "./About.module.css";
 
@@ -8,9 +7,6 @@ const About = () => {
     return (
         <div className={styles.container}>
             <NavBar />
-            {/* <Link to="/Home" className={styles.back}>
-                <img src={back} alt="back" />
-            </Link> */}
             <div className={styles.aboutContainer}>
                 <div className={styles.name}>
                     <h1>Eric A. Mercado</h1>

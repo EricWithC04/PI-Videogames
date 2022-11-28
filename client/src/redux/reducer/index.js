@@ -7,7 +7,8 @@ import { GET_ALL_GAMES,
          FILTER_BY_GENRE,
          FILTER_BY_CREATED,
          BROWSE_GAME,
-         CREATE_GAME } from "../action-types/index.js";
+         CREATE_GAME, 
+         CLEAR_GAME} from "../action-types/index.js";
 
 const initialState = {
     allGames: [],
@@ -85,6 +86,11 @@ const rootReducer = (state = initialState, action) => {
         case CREATE_GAME:
             return {
                 ...state
+            }
+        case CLEAR_GAME:
+            return {
+                ...state,
+                gameDetail: action.payload
             }
         default: return state;
     }

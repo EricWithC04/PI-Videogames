@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { useHistory } from "react-router-dom"
 import { getGenres, getPlatforms, createGame } from '../../redux/actions';
 import styles from "./CreateGameForm.module.css";
 
 const CreateGameForm = () => {
 
     const dispatch = useDispatch();
+    const history = useHistory();
 
     useEffect(() => {
         dispatch(getGenres())
@@ -133,6 +135,7 @@ const CreateGameForm = () => {
             })
             setGameGenres([])
             setGamePlatforms([])
+            history.push("/Home")
         }
     }}
 

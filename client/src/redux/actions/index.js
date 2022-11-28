@@ -8,7 +8,8 @@ import { GET_ALL_GAMES,
          FILTER_BY_GENRE,
          FILTER_BY_CREATED,
          BROWSE_GAME,
-         CREATE_GAME } from "../action-types/index.js";
+         CREATE_GAME, 
+         CLEAR_GAME} from "../action-types/index.js";
 
 export const getAllGames = () => {
     return async function (dispatch) {
@@ -116,6 +117,15 @@ export const createGame = (game) => {
         return dispatch({
             type: CREATE_GAME,
             payload: newGame.data
+        })
+    }
+}
+
+export const clearGame = () => {
+    return async function (dispatch) {
+        dispatch({
+            type: CLEAR_GAME,
+            payload: {}
         })
     }
 }
