@@ -1,10 +1,13 @@
 import React from 'react';
 import SearchBar from "../SearchBar/SearchBar.jsx";
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import logo from "../../img/logo.png";
 import styles from "./NavBar.module.css";
 
 const NavBar = ({ setPage, setFilter }) => {
+
+    const location = useLocation();
+
     return (
         <div className={styles.navBar}>
             <Link to="/Home" className={styles.image} style={{ textDecoration: "none" }}>
@@ -16,10 +19,14 @@ const NavBar = ({ setPage, setFilter }) => {
             <Link to="/Home/CreateGame" style={{ textDecoration: "none" }}>
                 <h4 className={styles.text}>Crear Videojuego</h4>
             </Link>
-            <SearchBar 
-                setPage={setPage}
-                setFilter={setFilter}
-            />
+            {
+                location.pathname === "/Home" ? (
+                    <SearchBar 
+                        setPage={setPage}
+                        setFilter={setFilter}
+                    />
+                ) : null
+            }
         </div>
     );
 };
