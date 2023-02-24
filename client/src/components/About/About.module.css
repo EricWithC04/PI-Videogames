@@ -31,6 +31,7 @@
     align-items: center;
 }
 
+
 .text {
     display: flex;
     align-items: center;
@@ -45,7 +46,9 @@
 
 .name {
     display: flex;
+    flex-direction: column;
     justify-content: center;
+    align-items: center;
     background-color: #000c;
     color: white;
     margin: 5px;
@@ -54,4 +57,7 @@
     height: 95%;
 }
 
-
+.name img {
+    width: 85%;
+    height: 48%;
+}
