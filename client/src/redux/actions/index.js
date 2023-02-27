@@ -13,40 +13,40 @@ import { GET_ALL_GAMES,
 
 export const getAllGames = () => {
     return async function (dispatch) {
-        const allGames = await (await axios.get("/videogames")).data
+        const allGames = await axios.get("/videogames")
         dispatch({
             type: GET_ALL_GAMES,
-            payload: allGames
+            payload: allGames.data
         })
     }
 }
 
 export const getGameDetail = (id) => {
     return async function (dispatch) {
-        const gameDetail = await (await axios.get(`/videogames/${id}`)).data
+        const gameDetail = await axios.get(`/videogames/${id}`)
         dispatch({
             type: GET_GAME_DETAIL,
-            payload: gameDetail
+            payload: gameDetail.data
         })
     }
 }
 
 export const getGenres = () => {
     return async function (dispatch) {
-        const allGenres = await (await axios.get("/genres")).data
+        const allGenres = await axios.get("/genres")
         dispatch({
             type: GET_GENRES,
-            payload: allGenres
+            payload: allGenres.data
         })
     }
 }
 
 export const getPlatforms = () => {
     return async function (dispatch) {
-        const allPlatforms = await (await axios.get("/platforms")).data
+        const allPlatforms = await axios.get("/platforms")
         dispatch({
             type: GET_PLATFORMS,
-            payload: allPlatforms
+            payload: allPlatforms.data
         })
     }
 }
@@ -98,10 +98,10 @@ export const setBrowseGame = (games) => {
 
 export const browseApiGame = (name) => {
     return async function (dispatch) {
-        const browsed = await (await axios.get(`/videogames?name=${name}`)).data
+        const browsed = await axios.get(`/videogames?name=${name}`)
         dispatch({
             type: BROWSE_GAME,
-            payload: browsed
+            payload: browsed.data
         })
     }
 }
