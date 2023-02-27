@@ -13,8 +13,7 @@ import { GET_ALL_GAMES,
 
 export const getAllGames = () => {
     return async function (dispatch) {
-        const allGames = await fetch("http://localhost:3001/videogames")
-            .then(response => response.json())
+        const allGames = await (await axios.get("/videogames")).data
         dispatch({
             type: GET_ALL_GAMES,
             payload: allGames
@@ -24,8 +23,7 @@ export const getAllGames = () => {
 
 export const getGameDetail = (id) => {
     return async function (dispatch) {
-        const gameDetail = await fetch(`http://localhost:3001/videogames/${id}`)
-            .then(response => response.json())
+        const gameDetail = await (await axios.get(`/videogames/${id}`)).data
         dispatch({
             type: GET_GAME_DETAIL,
             payload: gameDetail
@@ -35,8 +33,7 @@ export const getGameDetail = (id) => {
 
 export const getGenres = () => {
     return async function (dispatch) {
-        const allGenres = await fetch("http://localhost:3001/genres")
-            .then(response => response.json())
+        const allGenres = await (await axios.get("/genres")).data
         dispatch({
             type: GET_GENRES,
             payload: allGenres
@@ -46,8 +43,7 @@ export const getGenres = () => {
 
 export const getPlatforms = () => {
     return async function (dispatch) {
-        const allPlatforms = await fetch("http://localhost:3001/platforms")
-            .then(response => response.json())
+        const allPlatforms = await (await axios.get("/platforms")).data
         dispatch({
             type: GET_PLATFORMS,
             payload: allPlatforms
@@ -102,8 +98,7 @@ export const setBrowseGame = (games) => {
 
 export const browseApiGame = (name) => {
     return async function (dispatch) {
-        const browsed = await fetch(`http://localhost:3001/videogames?name=${name}`)
-            .then(response => response.json())
+        const browsed = await (await axios.get(`/videogames?name=${name}`)).data
         dispatch({
             type: BROWSE_GAME,
             payload: browsed
@@ -113,7 +108,7 @@ export const browseApiGame = (name) => {
 
 export const createGame = (game) => {
     return async function (dispatch) {
-        const newGame = await axios.post("http://localhost:3001/videogames", game)
+        const newGame = await axios.post("/videogames", game)
         return dispatch({
             type: CREATE_GAME,
             payload: newGame.data

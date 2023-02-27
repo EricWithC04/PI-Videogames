@@ -5,7 +5,9 @@ import Error404 from "./components/Error404/Error404.jsx";
 import CreateGame from "./components/CreateGame/CreateGame.jsx";
 import Detail from "./components/Detail/Detail.jsx";
 import About from "./components/About/About.jsx";
+import axios from "axios";
 import './App.css';
+axios.defaults.baseURL = "http://localhost:3001/";
 
 function App() {
   return (
