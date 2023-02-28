@@ -7,7 +7,7 @@ import Detail from "./components/Detail/Detail.jsx";
 import About from "./components/About/About.jsx";
 import axios from "axios";
 import './App.css';
-axios.defaults.baseURL = "http://localhost:3001/";
+axios.defaults.baseURL = "https://pi-videogames-production-63da.up.railway.app/";
 
 function App() {
   return (
